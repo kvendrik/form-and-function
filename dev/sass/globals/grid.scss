@@ -1,0 +1,7 @@
+.column.two-third {
+    @include column(7);
+}
+
+.column.one-third {
+    @include column(5);
+}
