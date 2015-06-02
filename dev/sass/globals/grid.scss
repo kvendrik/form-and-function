@@ -1,7 +1,11 @@
-.column.two-third {
-    @include column(7);
+.col.col--two-third {
+    @include column(8);
 }
 
-.column.one-third {
-    @include column(5);
+.col.col--one-third {
+    @include column(4);
+}
+
+.col.col--half {
+    @include column(6);
 }

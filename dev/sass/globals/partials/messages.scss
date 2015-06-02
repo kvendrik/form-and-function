@@ -1,0 +1,35 @@
+.message {
+	padding: $margin-s $margin-m;
+
+	background-color: $white;
+	@include border();
+
+	box-shadow: 5px 5px 0 $light-blue-lighter;
+
+	&:before {
+		content: '';
+
+		position: absolute;
+		z-index: -1;
+		left: 0;
+
+		width: 40%;
+		height: 2px;
+		background-color: $light-blue;
+	}
+
+	&.message--right {
+		&:before {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	&__footer {
+		padding-top: $margin-xs;
+		@include border(top);
+
+		font-size: $size-s;
+		font-weight: $light-weight;
+	}
+}

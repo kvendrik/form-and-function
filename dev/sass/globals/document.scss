@@ -12,47 +12,14 @@ body {
 	color: $base-color;
 	line-height: $line-height;
 	overflow: hidden;
-}
-
-.bg {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
-
-	//background-image: url(/img/skater.jpg);
-	background-color: $dark;
-	background-repeat: no-repeat;
-	background-position: center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-
-	&:after {
-		content: '';
-
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-
-		background-color: $dark;
-		opacity: .8;
-
-		z-index: 1;
-	}
+	background-color: $light-blue-lightest;
 }
 
 .container {
-	width: $md-container-width;
+	width: 1024px;
 	margin: 0 auto;
-	overflow: hidden;
-}
 
-.content-wrapper {
-	margin-top: 10em;
+	&.container--wide {
+		width: 1200px;
+	}
 }

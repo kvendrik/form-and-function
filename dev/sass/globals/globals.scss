@@ -1,3 +1,23 @@
 .text-center {
     text-align: center;
 }
+
+.text-right {
+    text-align: right;
+}
+
+.text-small {
+	font-size: ceil($size-m * 0.9)
+}
+
+.text-accent--secondary {
+	color: $blue;
+}
+
+.no-margin-btm {
+	margin-bottom: 0;
+}
+
+.margin-top-s {
+	margin-top: $margin-s;
+}

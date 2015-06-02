@@ -1,41 +1,43 @@
-$md-container-width: 738px;
-$sm-container-width: 550px;
-$xs-container-width: 90%;
-
-
 //COLORS
 $white: #fff;
-$base-color: $white;
-$dark: #333;
-$accent: #2e88bf;
-$red: #E35354;
+$black: #141518;
+
+$base-color: #0b253b;
+$orange: #ff6b32;
+$blue: #85beef;
+
+$light-blue: #c8f2f8;
+$light-blue-lighter: #dbf7f5;
+$light-blue-lightest: #eefffe;
 
 
 //TYPOGRAPHY
 $main-family: 'aktiv-grotesk-std', 'Source Sans Pro', Helvetica, Arial, sans-serif;
 
-$main-weight: 300;
-$bold-weight: 500;
+$light-weight: 300;
+$main-weight: 500;
+$bold-weight: 900;
 
 $line-height: 1.5em;
 $heading-line-height: 1.3em;
 
-$size-s: .9em;
-$size-m: 16px;
+$size-s: .8em;
+$size-m: 20px;
 $xs-size-m: 16px;
 
 //SPACING
+$margin-xs: 5px;
 $margin-s: 10px;
-$margin-m: 20px;
-$margin-l: 40px;
+$margin-m: 15px;
+$margin-l: 30px;
 
 $padding-m: $margin-s $margin-s+5;
 
 
 //BORDERS
 $border-style: solid;
-$border-width: 1px;
-$border-radius: 2px;
+$border-width: 2px;
+$border-radius: 0;
 
 
 //ANIMATIONS

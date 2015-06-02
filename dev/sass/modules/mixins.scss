@@ -1,5 +1,5 @@
 //Border
-@mixin border($side:false, $color:$white, $border-width:$border-width){
+@mixin border($side:false, $color:$light-blue, $border-width:$border-width){
     @if $side {
         border-#{$side}: $border-style $border-width $color;
     } @else {

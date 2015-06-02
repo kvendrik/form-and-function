@@ -1,36 +1,32 @@
-<%
-    var siteUrl = 'http://fandf.com/peak',
-        appName = 'Form & Function',
-        appDesc = 'Thoughts for the digital age';
-%>
+
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title><%= appName %> - <%= appDesc %></title>
+    <title>Form &amp; Function - Thoughts for the digital age</title>
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=no">
-    <meta name="description" content="<%= appDesc %>">
+    <meta name="description" content="Thoughts for the digital age">
 
     <meta name="author" content="Whitespell, Inc">
     <meta name="follow" content="index, follow">
 
-    <meta property="og:site_name" content="<%= appName %> - <%= appDesc %>">
+    <meta property="og:site_name" content="Form &amp; Function - Thoughts for the digital age">
     <meta property="og:locale" content="en-US">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="<%= appDesc %>">
-    <meta property="og:url" content="<%= siteUrl %>">
-    <meta property="og:title" content="<%= appName %> - <%= appDesc %>">
-    <meta property="og:image" content="<%= siteUrl %>/img/peak-og.png">
+    <meta property="og:description" content="Thoughts for the digital age">
+    <meta property="og:url" content="http://fandf.com/peak">
+    <meta property="og:title" content="Form &amp; Function - Thoughts for the digital age">
+    <meta property="og:image" content="http://fandf.com/peak/img/peak-og.png">
     <meta property="fb:app_id" content="874882852535587">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@_whitespell">
-    <meta name="twitter:url" content="<%= siteUrl %>">
-    <meta name="twitter:title" content="<%= appName %> - <%= appDesc %>">
-    <meta name="twitter:description" content="<%= appDesc %>">
-    <meta name="twitter:image" content="<%= siteUrl %>/img/peak-og.png">
+    <meta name="twitter:url" content="http://fandf.com/peak">
+    <meta name="twitter:title" content="Form &amp; Function - Thoughts for the digital age">
+    <meta name="twitter:description" content="Thoughts for the digital age">
+    <meta name="twitter:image" content="http://fandf.com/peak/img/peak-og.png">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
@@ -78,7 +74,28 @@
         </div>
     </header>
 
-    <%- body %>
+    
+<div class="container">
+
+    <section class="col col--half">
+        <div class="message">
+            <p><a href="#">@zeplin_io</a> is awesome! Finally a tool for better collaboration between designers
+            using @sketchapp and front-end devs!!</p>
+            <footer class="message__footer">
+                <a href="#">https://zeplin.io</a>
+            </footer>
+        </div>
+    </section>
+    <section class="col col--half">
+        <div class="message message--right">
+            <p>Sexism 1 on 1 by Crystal (tool that customizes your communication based on personality profiles)</p>
+			<img src="http://placecage.com/600/300" />
+            <footer class="message__footer">
+                <a href="#">https://crystalknows.com/home</a>
+            </footer>
+        </div>
+    </section>
+</div>
 
     <script src="/js/app.js"></script>
 
