@@ -5,6 +5,7 @@
 	@include border();
 
 	box-shadow: 5px 5px 0 $light-blue-lighter;
+	margin-bottom: $margin-l;
 
 	&:before {
 		content: '';
