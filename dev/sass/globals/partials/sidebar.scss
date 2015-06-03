@@ -1,3 +1,26 @@
 .sidebar {
-	
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	width: 300px;
+	background-color: $black;
+
+    padding: $margin-m $margin-s;
+
+    overflow: hidden;
+
+    font-size: $size-s;
+    color: $white;
+
+    &__close-btn {
+        margin-bottom: $margin-m;
+    }
+
+    &__footer {
+        @include border(top, $base-color);
+        padding-top: $margin-s;
+    }
 }
