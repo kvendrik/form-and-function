@@ -6,6 +6,7 @@
     z-index: 1;
 
     transform: translateX(0);
+    box-shadow: inset 5px 0 0 darken($black, 10%);
 
 	width: 330px;
 	background-color: $black;
@@ -52,6 +53,7 @@
         right: auto;
         left: -330px;
         transform: translateX(0);
+        box-shadow: inset -7px 1px 0 0px darken($black, 10%);
 
         .sidebar__close-btn {
             text-align: right;
