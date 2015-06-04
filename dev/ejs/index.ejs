@@ -2,15 +2,17 @@
 
 <div class="container">
 
-    <section class="col col--half">
+    <div id="message-template" style="display: none;">
         <div class="message">
-            <p><a href="#">@zeplin_io</a> is awesome! Finally a tool for better collaboration between designers
-            using @sketchapp and front-end devs!!</p>
+            <p>{{text}}</p>
             <footer class="message__footer">
                 <a href="#">https://zeplin.io</a>
             </footer>
         </div>
-    </section>
+    </div>
+
+    <section class="col col--half" data-feed data-feed-username="kvendrik"></section>
+
     <section class="col col--half">
         <div class="message message--right">
             <p>Sexism 1 on 1 by Crystal (tool that customizes your communication based on personality profiles)</p>

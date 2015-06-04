@@ -3,10 +3,10 @@
 
     FF.init = {
         init: function(){
-            this.initDirectives();
+            this._initDirectives();
         },
-        initDirectives: function() {
 
+        _initDirectives: function() {
             $('[data-toggle-class]').click(function(e){
                 e.preventDefault();
 
@@ -15,7 +15,6 @@
 
                 $target.toggleClass($this.data('toggle-class'));
             });
-
         }
     };
 
