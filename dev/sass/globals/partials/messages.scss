@@ -7,6 +7,12 @@
 	box-shadow: 5px 5px 0 $light-blue-lighter;
 	margin-bottom: $margin-l;
 
+	font-weight: $bold-weight;
+
+	img {
+		margin-bottom: $margin-s;
+	}
+
 	&:before {
 		content: '';
 

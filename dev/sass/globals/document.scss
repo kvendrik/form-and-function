@@ -7,10 +7,16 @@
 	-webkit-tap-highlight-color: transparent;
 }
 
+html,body {
+	height: 100%;
+}
+
 body {
 	font: $main-weight $size-m $main-family;
+
 	color: $base-color;
 	line-height: $line-height;
+
 	overflow: hidden;
 	background-color: $light-blue-lightest;
 }

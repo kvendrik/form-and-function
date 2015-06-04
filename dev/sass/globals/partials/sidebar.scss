@@ -1,27 +1,42 @@
 .sidebar {
 	position: fixed;
 	top: 0;
-	right: -300px;
+    right: -330px;
 	bottom: 0;
+    z-index: 1;
 
-	width: 300px;
+    transform: translateX(0);
+
+	width: 330px;
 	background-color: $black;
 
-    padding: $margin-m $margin-s;
+    padding: $margin-m;
+    padding-top: $margin-l;
 
     overflow: hidden;
 
     font-size: $size-s;
+    line-height: $line-height;
     color: $white;
 
-    @include transition((left, right));
+    &__img {
+        height: 220px;
+        overflow: hidden;
+        margin-bottom: $margin-m;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
 
     &__close-btn {
-        margin-bottom: $margin-m;
+        margin-bottom: $margin-l;
         color: $white;
         display: block;
 
         .ion {
+            font-size: $size-m;
             position: relative;
             top: 2px;
             margin-right: $margin-xs;
@@ -32,16 +47,34 @@
         @include border(top, $base-color);
         padding-top: $margin-s;
     }
+
+    &.sidebar--left {
+        right: auto;
+        left: -330px;
+        transform: translateX(0);
+
+        .sidebar__close-btn {
+            text-align: right;
+        }
+    }
 }
 
-body {
-    @include transition((margin-left, margin-right));
+body, .sidebar {
+    @include transition(transform);
 }
 
 body.sidebar-open--right {
-    margin-left: -300px;
+    transform: translateX(-330px);
 
-    #sidebar--right {
-        right: 0;
+    .sidebar--right {
+        transform: translateX(0);
+    }
+}
+
+body.sidebar-open--left {
+    transform: translateX(330px);
+
+    .sidebar--left {
+        transform: translateX(0);
     }
 }
