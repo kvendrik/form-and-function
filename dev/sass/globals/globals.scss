@@ -14,6 +14,49 @@
 	color: $blue;
 }
 
+.arrow {
+    display: inline-block;
+
+    position: relative;
+    top: -3px;
+
+    margin: 0 $margin-s;
+
+    &:after {
+        content: '';
+
+        width: 60px;
+        height: 2px;
+        background-color: $blue;
+
+        display: block;
+    }
+
+    &:before {
+        content: '';
+
+        position: absolute;
+        left: -5px;
+        bottom: -4px;
+
+        width: 0;
+        height: 0;
+
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 5px solid $blue;
+    }
+
+    &.arrow--right {
+        &:before {
+            right: -5px;
+            left: auto;
+            border-right: none;
+            border-left: 5px solid $blue;
+        }
+    }
+}
+
 .no-margin-btm {
 	margin-bottom: 0;
 }

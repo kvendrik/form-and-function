@@ -1,8 +1,7 @@
 .sidebar {
-
 	position: fixed;
 	top: 0;
-	right: 0;
+	right: -300px;
 	bottom: 0;
 
 	width: 300px;
@@ -15,12 +14,34 @@
     font-size: $size-s;
     color: $white;
 
+    @include transition((left, right));
+
     &__close-btn {
         margin-bottom: $margin-m;
+        color: $white;
+        display: block;
+
+        .ion {
+            position: relative;
+            top: 2px;
+            margin-right: $margin-xs;
+        }
     }
 
     &__footer {
         @include border(top, $base-color);
         padding-top: $margin-s;
+    }
+}
+
+body {
+    @include transition((margin-left, margin-right));
+}
+
+body.sidebar-open--right {
+    margin-left: -300px;
+
+    #sidebar--right {
+        right: 0;
     }
 }

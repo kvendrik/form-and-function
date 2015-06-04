@@ -30,6 +30,10 @@ p {
 a {
     color: $orange;
     text-decoration: none;
+
+    &.a--clean {
+        color: $base-color;
+    }
 }
 
 img {
