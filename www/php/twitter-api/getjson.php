@@ -14,7 +14,7 @@
 	$query = urlencode($_POST['query']);
 	$limit = 5;
 
-	$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=".$query."&count=".$limit."&include_entities=true");
+	$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=".$query."&count=".$limit."&result_type=mixed&include_entities=true&sort=-date");
 
 	echo json_encode($tweets);
 

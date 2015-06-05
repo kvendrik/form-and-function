@@ -9,20 +9,37 @@
 
 	font-weight: $bold-weight;
 
-	img {
-		margin-bottom: $margin-s;
+	opacity: 0;
+	overflow: hidden;
+
+	@include transition((max-height, opacity));
+
+	&__img, p {
+		margin: 0;
+		margin-bottom: $margin-xs;
 	}
 
-	&:before {
-		content: '';
+	&__img {
+		overflow: hidden;
+		max-height: 200px;
+	}
 
-		position: absolute;
-		z-index: -1;
-		left: 0;
+	// &:before {
+	// 	content: '';
 
-		width: 40%;
-		height: 2px;
-		background-color: $light-blue;
+	// 	position: absolute;
+	// 	z-index: -1;
+	// 	left: 0;
+
+	// 	width: 0;
+	// 	height: 2px;
+	// 	background-color: $light-blue;
+
+	// 	@include transition(width);
+	// }
+
+	&.message--visible {
+		opacity: 1;
 	}
 
 	&.message--right {
@@ -33,6 +50,7 @@
 	}
 
 	&__footer {
+		margin-top: $margin-m;
 		padding-top: $margin-xs;
 		@include border(top);
 

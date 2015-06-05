@@ -18,6 +18,13 @@
     font-weight: $light-weight;
 }
 
+.loader {
+    width: 44px;
+    height: 44px;
+    background-image: url(/img/loader-puff.svg);
+    margin: 0 auto;
+}
+
 .arrow {
     display: inline-block;
 

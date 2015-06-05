@@ -1,3 +1,12 @@
+.col {
+    width: 100%;
+    overflow: hidden;
+}
+
+.col--overflow {
+    overflow: visible;
+}
+
 .col.col--two-third {
     @include column(8);
 }
