@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Peak app landing page",
   "main": "GruntFile.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.12.4",
+    "twitter": "^1.2.5"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-autoprefixer": "^2.2.0",

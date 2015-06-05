@@ -14,6 +14,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
         },
 
         _initDirectives: function() {
+            var $body = $('body');
+
             $('[data-toggle-class]').click(function(e){
                 e.preventDefault();
 
@@ -21,6 +23,11 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
                     $target = $($this.data('toggle-class-target'));
 
                 $target.toggleClass($this.data('toggle-class'));
+            });
+
+            $body.on('click', '.message__img', function(e){
+                e.preventDefault();
+                $(this).toggleClass('message__img--expanded');
             });
         }
     };
@@ -128,7 +135,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
                     var details = mediaArray[key];
                     template = template.replace(details.url, '');
-                    mediaContents += '<a href="'+details.url+'"><div class="message__img"><img src="'+details.media_url+'" /></div></a>';
+                    mediaContents += '<div class="message__img"><img src="'+details.media_url+'" /></div>';
 
                 }
             }

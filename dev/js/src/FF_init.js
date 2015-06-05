@@ -7,6 +7,8 @@
         },
 
         _initDirectives: function() {
+            var $body = $('body');
+
             $('[data-toggle-class]').click(function(e){
                 e.preventDefault();
 
@@ -14,6 +16,11 @@
                     $target = $($this.data('toggle-class-target'));
 
                 $target.toggleClass($this.data('toggle-class'));
+            });
+
+            $body.on('click', '.message__img', function(e){
+                e.preventDefault();
+                $(this).toggleClass('message__img--expanded');
             });
         }
     };

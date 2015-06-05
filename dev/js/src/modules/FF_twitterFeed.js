@@ -96,7 +96,7 @@
 
                     var details = mediaArray[key];
                     template = template.replace(details.url, '');
-                    mediaContents += '<a href="'+details.url+'"><div class="message__img"><img src="'+details.media_url+'" /></div></a>';
+                    mediaContents += '<div class="message__img"><img src="'+details.media_url+'" /></div>';
 
                 }
             }

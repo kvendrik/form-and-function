@@ -22,6 +22,17 @@
 	&__img {
 		overflow: hidden;
 		max-height: 200px;
+		cursor: zoom-in;
+		line-height: 0;
+
+		img {
+			margin: 0;
+		}
+
+		&.message__img--expanded {
+			max-height: none;
+			cursor: zoom-out;
+		}
 	}
 
 	// &:before {
