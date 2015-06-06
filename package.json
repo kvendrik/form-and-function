@@ -4,7 +4,9 @@
   "description": "Peak app landing page",
   "main": "GruntFile.js",
   "dependencies": {
+    "body-parser": "^1.12.4",
     "express": "^4.12.4",
+    "mongoose": "^4.0.5",
     "twitter": "^1.2.5"
   },
   "devDependencies": {
