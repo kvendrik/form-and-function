@@ -20,40 +20,42 @@ module.exports = {
 
 	_setEndpoints: function(){
 		app.get('/tweets', function(req, res){
-			db.getAllTweets(function(err, tweets){
+			db.getTweets(function(err, tweets){
 				if(err){
 					res.json({
 				        success: false,
-				        data: null,
-				  		message: 'an error occured'
+				        count: 0,
+				  		message: 'an error occured',
+				  		data: null
 				  	});
+				  	throw err;
 				} else {
 					res.json({
 				        success: true,
-				  		data: tweets,
-				  		message: null
+				        count: Object.keys(tweets).length,
+				  		message: null,
+				  		data: tweets
 				  	});
-				  	throw err;
 				}
-			});
+			}, req.query);
 		});
 
-		app.post('/tweets', function(req, res){
-		  	db.saveTweet(req.body, function(err){
-		  		if(err){
-		  			res.json({
-			        	success: false,
-			  			message: 'an error occured'
-			  		});
-			  		throw err;	
-		  		} else {
-			  		res.json({
-				        success: true,
-				  		message: 'tweet saved'
-				  	});
-			  	}
-		  	});
-		});
+		// app.post('/tweets', function(req, res){
+		//   	db.saveTweet(req.body, function(err){
+		//   		if(err){
+		//   			res.json({
+		// 	        	success: false,
+		// 	  			message: 'an error occured'
+		// 	  		});
+		// 	  		throw err;	
+		//   		} else {
+		// 	  		res.json({
+		// 		        success: true,
+		// 		  		message: 'tweet saved'
+		// 		  	});
+		// 	  	}
+		//   	});
+		// });
 	}
 
 };

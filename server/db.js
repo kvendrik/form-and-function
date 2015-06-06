@@ -9,21 +9,41 @@ module.exports = {
         });
     },
 
-    getAllTweets: function(callback){
-        var Tweet = this._Tweet;
+    getTweets: function(callback, options){
+        options = options || {};
 
-        server.get('/tweets', function(req, res) {
-            Tweet.find({}, function(err, tweets) {
-                callback(err, tweets);
-            });
+        var q = this._Tweet.find({});
+
+        if(options.limit){
+            q = q.limit(options.limit);
+        }
+
+        if(options.skip){
+            q = q.skip(options.skip);
+        }
+
+        q.exec(function(err, tweets) {
+            callback(err, tweets);
         });
     },
 
     saveTweet: function(details, callback){
-        var tweet = new this._Tweet({
-            details: details
+        var Tweet = this._Tweet;
+
+        Tweet.count({ 'details.id': details.id }, function(err, count){
+            //check if tweet doesn't already exist in db
+            if(count > 0){
+                //tweet already exists in db
+                callback({
+                    message: 'tweet already exists in db'
+                });
+            } else {
+                var tweet = new Tweet({
+                    details: details
+                });
+                tweet.save(callback);
+            }
         });
-        tweet.save(callback);
     }
 
 };

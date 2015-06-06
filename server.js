@@ -5,8 +5,10 @@
 
 var twitter = require('./server/twitter'),
 	server = require('./server/server'),
-    db = require('./server/db');
+    db = require('./server/db'),
+    logger = require('./server/logger');
 
+logger.init();
 db.init();
 server.init();
 twitter.init();
