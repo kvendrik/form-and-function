@@ -12,18 +12,31 @@ module.exports = {
     getTweets: function(callback, options){
         options = options || {};
 
-        var q = this._Tweet.find({});
+        var contructQuery = function(queryObj){
+            var q = this._Tweet.find(queryObj);
 
-        if(options.limit){
-            q = q.limit(options.limit);
-        }
+            if(options.limit){
+                q = q.limit(options.limit);
+            }
 
-        if(options.skip){
-            q = q.skip(options.skip);
-        }
+            if(options.skip){
+                q = q.skip(options.skip);
+            }
+
+            return q;
+        }.bind(this);
+
+        var result = {},
+            q = contructQuery({ 'details.user.screen_name': 'kvendrik' });
 
         q.exec(function(err, tweets) {
-            callback(err, tweets);
+            result.kvendrik = tweets;
+
+            q = contructQuery({ 'details.user.screen_name': 'krijnenbeebie' });
+            q.exec(function(err, tweets) {
+                result.krijnenbeebie = tweets;
+                callback(err, result);
+            });
         });
     },
 

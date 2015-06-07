@@ -19,6 +19,15 @@ module.exports = {
 	},
 
 	_setEndpoints: function(){
+		app.get('/', function(req, res){
+			res.json({
+		        success: true,
+		        count: null,
+		  		message: 'Welcome to the Form and Function API',
+		  		data: null
+		  	});
+		});
+
 		app.get('/tweets', function(req, res){
 			db.getTweets(function(err, tweets){
 				if(err){
