@@ -44,6 +44,22 @@ module.exports = {
                 tweet.save(callback);
             }
         });
+    },
+
+    removeTweet: function(details, callback){
+        var Tweet = this._Tweet;
+
+        Tweet.count({ 'details.id': details.id }, function(err, count){
+            //check if tweet exist in db
+            if(count > 0){
+                //tweet exists in db
+                Tweet.remove({ 'details.id': details.id }, callback);
+            } else {
+                callback({
+                    message: 'tweet doesn\'t exists in db'
+                });
+            }
+        });
     }
 
 };

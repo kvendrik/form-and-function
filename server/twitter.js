@@ -21,13 +21,13 @@ module.exports = {
 	  		if(err){
 	  			logger.error('Error while saving tweet');
 	  			logger.warn(JSON.stringify({ 
-	  				id: tweetDetails.id,
+	  				id_str: tweetDetails.id_str,
 	  				msg: err.message
 	  			}));
 	  		} else {
 	  			logger.success('Saved tweet');
-	  			logger.log(JSON.stringify({
-	  				id: tweetDetails.id
+	  			logger.warn(JSON.stringify({
+	  				id_str: tweetDetails.id_str
 	  			}));
 	  		}
 	  	});
@@ -39,12 +39,42 @@ module.exports = {
 		//@kvendrik: 583739599
 		//@krijnenbeebie: 225063281
 		client.stream('statuses/filter', { follow: '583739599, 225063281', track: '#formandfunction' }, function(stream) {
-		  	stream.on('data', function(tweetDetails) {
-		  		logger.log('Stream new tweet');
-		  		logger.warn(JSON.stringify({
-		  			id: tweetDetails.id
-		  		}));
-		    	self._saveTweet(tweetDetails);
+		  	stream.on('data', function(details) {
+
+		  		//check if its a tweet
+		  		if(details.text){
+			  		logger.log('Stream new tweet');
+			  		logger.warn(JSON.stringify({
+			  			id_str: details.id_str
+			  		}));
+			    	self._saveTweet(details);
+		    	}
+
+		    	//check if its a deleted tweet
+		    	if(details.delete){
+		    		logger.log('Stream deleted tweet');
+		    		details = details.delete.status;
+
+			  		logger.warn(JSON.stringify({
+			  			id_str: details.id_str
+			  		}));
+
+			    	db.removeTweet(details, function(err){
+			    		if(err){
+				  			logger.error('Error while removing tweet');
+				  			logger.warn(JSON.stringify({ 
+				  				id_str: details.id_str,
+				  				msg: err.message
+				  			}));
+				  		} else {
+				  			logger.success('Removed tweet');
+				  			logger.warn(JSON.stringify({
+				  				id_str: details.id_str
+				  			}));
+				  		}
+			    	});
+		    	}
+
 		  	});
 
 		  	stream.on('error', function(error) {
