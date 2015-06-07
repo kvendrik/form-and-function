@@ -1,34 +1,73 @@
 (function($, FF, undefined) {
     'use strict';
 
+    var $window = $(window),
+        windowHeight = $window.height(),
+        documentHeight = $(document).height();
+
     FF.twitterFeed = {
         init: function(){
+            this._$el = {
+                $tweetsButton: $('.js-load-tweets'),
+                $tweetsLoader: $('.js-tweets-loader')
+            };
+
+            var currTweetsOptions = this._currTweetsOptions = {
+                limit: 25,
+                skip: 0
+            };
+
+            this._getTweets(currTweetsOptions);
             this._bindEvents();
         },
 
         _bindEvents: function(){
-            this._getTweets();
+            $window.scroll(this._checkAtBottom.bind(this));
+
+            $('.js-load-tweets').click(function(e){
+                e.preventDefault();
+                this._getNextTweets();
+            }.bind(this));
         },
 
-        _getTweets: function(){
+        _checkAtBottom: function(){
+            if($window.scrollTop() + windowHeight == documentHeight) {
+                this._getNextTweets();
+            }
+        },
+
+        _getNextTweets: function(){
+            this._currTweetsOptions.skip += this._currTweetsOptions.limit;
+            this._getTweets(this._currTweetsOptions);
+        },
+
+        _getTweets: function(options){
             var self = this;
 
-            $('[data-feed]').each(function(){
-                var $this = $(this);
+            this._$el.$tweetsButton.addClass('button--hidden');
+            this._$el.$tweetsLoader.removeClass('loader--hidden');
 
-                $.ajax({
-                    type: 'POST',
-                    url: '../php/twitter-api/getjson.php',
-                    dataType: 'json',
-                    data: {
-                        query: $this.data('feed-query'),
-                        limit: 20//+%23wistjedat
-                    },
-                    success: function(res){
-                        console.log(res);
-                        self._handleTweet.call(self, res.statuses, $this[0], $($this.data('feed-template')).html());
-                    }
-                });
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:1337/tweets',
+                dataType: 'json',
+                data: options,
+                success: function(res){
+                    console.log(res);
+                    $('[data-feed]').each(function(){
+                        var $this = $(this);
+
+                        if(res.success){
+                            self._handleTweets.apply(self, [
+                                res.data[$this.data('feed-screen-name')],
+                                $this[0],
+                                $($this.data('feed-template')).html()
+                            ]);
+                        } else {
+                            throw new Error('an error occured while getting tweets from server');
+                        }
+                    });
+                }
             });
         },
 
@@ -110,10 +149,10 @@
             return template;
         },
 
-        _handleTweet: function(statuses, wrapper, msgTemplate){
+        _handleTweets: function(statuses, wrapper, msgTemplate){
 
             for(var i = 0, statusesL = statuses.length; i < statusesL; i++){
-                var obj = statuses[i],
+                var obj = statuses[i].details,
                     template = msgTemplate;
 
                 for(var key in obj){
@@ -133,6 +172,9 @@
                     this.addClass('message--visible');
                 }.bind($el), 200);
             }
+
+            this._$el.$tweetsButton.removeClass('button--hidden');
+            this._$el.$tweetsLoader.addClass('loader--hidden');
 
         }
     };

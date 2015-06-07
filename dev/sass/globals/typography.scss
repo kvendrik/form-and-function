@@ -45,3 +45,19 @@ a {
 img {
     width: 100%;
 }
+
+.button {
+    font-size: $size-s;
+
+    background-color: $blue;
+    color: $white;
+
+    padding: $margin-m $margin-m;
+
+    line-height: 1em;
+    display: inline-block;
+
+    &.button--hidden {
+        display: none;
+    }
+}

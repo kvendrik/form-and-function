@@ -77,7 +77,7 @@ module.exports = {
 
 		  	});
 
-		  	stream.on('error', function(error) {
+		  	stream.on('error', function(error){
 		    	throw error;
 		  	});
 		});

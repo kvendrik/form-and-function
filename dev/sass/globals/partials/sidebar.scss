@@ -62,7 +62,7 @@
 }
 
 body, .sidebar {
-    @include transition(transform);
+    @include transition(transform, $duration: $transition-duration-fast);
 }
 
 body.sidebar-open--right {
