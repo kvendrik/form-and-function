@@ -55,11 +55,17 @@
                 success: function(res){
                     console.log(res);
                     $('[data-feed]').each(function(){
-                        var $this = $(this);
+                        var $this = $(this),
+                            userTweets = res.data[$this.data('feed-screen-name')];
+
+                        if(userTweets.length < 1){
+                            this._$el.$tweetsLoader.addClass('loader--hidden');
+                            return;
+                        }
 
                         if(res.success){
                             self._handleTweets.apply(self, [
-                                res.data[$this.data('feed-screen-name')],
+                                userTweets,
                                 $this[0],
                                 $($this.data('feed-template')).html()
                             ]);
