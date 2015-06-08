@@ -42,8 +42,8 @@ module.exports = {
 		  	stream.on('data', function(details) {
 
 		  		//check if its a tweet
-		  		if(details.text){
-			  		logger.log('Stream new tweet');
+		  		if(details.text && details.text.indexOf('#foafu') !== -1){
+			  		logger.log('Stream new tweet\n"'+details.text+'"');
 			  		logger.warn(JSON.stringify({
 			  			id_str: details.id_str
 			  		}));
