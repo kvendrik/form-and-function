@@ -26,7 +26,7 @@ module.exports = {
 		  		message: 'Welcome to the Form and Function API',
 		  		data: {
                     endpoints: {
-                        tweets: '/tweets'
+                        tweets: '/tweets{?limit,skip}'
                     }
                 }
 		  	});
