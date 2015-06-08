@@ -60,7 +60,7 @@ module.exports = {
 		// 	        	success: false,
 		// 	  			message: 'an error occured'
 		// 	  		});
-		// 	  		throw err;	
+		// 	  		throw err;
 		//   		} else {
 		// 	  		res.json({
 		// 		        success: true,

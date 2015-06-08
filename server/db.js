@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 module.exports = {
 
     init: function(){
-        console.log('mongodb://127.0.0.1'+(process.env.MONGO_PORT ? ':'+process.env.MONGO_PORT : '')+'/form-and-function');
         mongoose.connect('mongodb://127.0.0.1'+(process.env.MONGO_PORT ? ':'+process.env.MONGO_PORT : '')+'/form-and-function');
         this._Tweet = mongoose.model('Tweet', {
             details: Object

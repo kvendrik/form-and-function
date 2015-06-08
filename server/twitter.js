@@ -20,7 +20,7 @@ module.exports = {
 		db.saveTweet(tweetDetails, function(err){
 	  		if(err){
 	  			logger.error('Error while saving tweet');
-	  			logger.warn(JSON.stringify({ 
+	  			logger.warn(JSON.stringify({
 	  				id_str: tweetDetails.id_str,
 	  				msg: err.message
 	  			}));
@@ -38,7 +38,7 @@ module.exports = {
 
 		//@kvendrik: 583739599
 		//@krijnenbeebie: 225063281
-		client.stream('statuses/filter', { follow: '583739599, 225063281', track: '#formandfunction' }, function(stream) {
+		client.stream('statuses/filter', { follow: '583739599, 225063281', track: '#foafu' }, function(stream) {
 		  	stream.on('data', function(details) {
 
 		  		//check if its a tweet
@@ -62,7 +62,7 @@ module.exports = {
 			    	db.removeTweet(details, function(err){
 			    		if(err){
 				  			logger.error('Error while removing tweet');
-				  			logger.warn(JSON.stringify({ 
+				  			logger.warn(JSON.stringify({
 				  				id_str: details.id_str,
 				  				msg: err.message
 				  			}));
@@ -96,8 +96,8 @@ module.exports = {
 		   	}
 		};
 
-		client.get('search/tweets', { q: 'from:kvendrik+#formandfunction', count: count }, callback);
-		client.get('search/tweets', { q: 'from:krijnenbeebie+#formandfunction', count: count }, callback);
+		client.get('search/tweets', { q: 'from:kvendrik+#foafu', count: count }, callback);
+		client.get('search/tweets', { q: 'from:krijnenbeebie+#foafu', count: count }, callback);
 	},
-	
+
 };

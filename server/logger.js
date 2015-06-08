@@ -30,5 +30,5 @@ module.exports = {
 	warn: function(msg){
 		console.warn(this._getTimeStr()+chalk.yellow(msg));
 	}
-	
+
 };
