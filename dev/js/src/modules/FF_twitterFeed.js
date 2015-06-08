@@ -49,7 +49,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:1337/tweets',
+                url: 'http://api.foafu.com/tweets',
                 dataType: 'json',
                 data: options,
                 success: function(res){
