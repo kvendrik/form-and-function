@@ -45,7 +45,7 @@ module.exports = {
 				} else {
 					res.json({
 				        success: true,
-				        count: Object.keys(tweets).length,
+				        count: Object.keys(tweets.kvendrik).length+Object.keys(tweets.krijnenbeebie).length,
 				  		message: null,
 				  		data: tweets
 				  	});
