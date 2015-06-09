@@ -3,8 +3,12 @@
     overflow: hidden;
 }
 
-.col--overflow {
+.col.col--overflow {
     overflow: visible;
+}
+
+.col.col--pull-right {
+    float: right !important;
 }
 
 .col.col--two-third {
