@@ -14,14 +14,16 @@
 
 	@include transition((max-height, opacity));
 
-	&__img, p {
-		margin: 0;
+	p {
 		margin-bottom: $margin-xs;
 	}
 
 	&__img {
 		overflow: hidden;
+
 		max-height: 200px;
+		padding-top: $margin-s;
+
 		cursor: zoom-in;
 		line-height: 0;
 
@@ -65,7 +67,7 @@
 		padding-top: $margin-xs;
 		@include border(top);
 
-		font-size: $size-s;
+		font-size: $size-xs;
 		font-weight: $light-weight;
 	}
 }

@@ -6,8 +6,8 @@
     text-align: right;
 }
 
-.text-small {
-	font-size: ceil($size-m * 0.9);
+small, .text-small {
+	font-size: $size-s;
 }
 
 .text-accent--secondary {
