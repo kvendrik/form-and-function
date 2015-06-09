@@ -3,6 +3,8 @@ var express = require('express'),
 	db = require('./db'),
 	app = express();
 
+var allowedAccessDomains = ['http://beta.foafu.com', 'http://127.0.0.1:9000'];
+
 module.exports = {
 
 	init: function(){
@@ -18,7 +20,9 @@ module.exports = {
 		}));
 
 		app.use(function(req, res, next) {
-	    	res.setHeader('Access-Control-Allow-Origin', 'http://beta.foafu.com');
+			var origin = req.headers.origin;
+
+	    	res.setHeader('Access-Control-Allow-Origin', allowedAccessDomains.indexOf(origin) !== -1 ? origin : allowedAccessDomains[0]);
 	    	res.header('Access-Control-Allow-Methods', 'GET');
 			res.header('Access-Control-Allow-Headers', 'Content-Type');
 	    	next();
