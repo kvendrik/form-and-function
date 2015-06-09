@@ -14,6 +14,8 @@
 
 	@include transition((max-height, opacity));
 
+	@extend .col.col--half;
+
 	&__img, p {
 		margin: 0;
 		margin-bottom: $margin-xs;
@@ -54,6 +56,7 @@
 	}
 
 	&.message--right {
+		float: right;
 		&:before {
 			left: auto;
 			right: 0;

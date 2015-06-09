@@ -138,26 +138,15 @@
     
 <div class="container">
 
-    <div id="message-template--left" style="display: none;">
+    <div id="message-template" style="display: none;">
         <div class="message">
             <p>{{text}}</p>
             {{media}}
             {{footer}}
         </div>
     </div>
-    <div id="message-template--right" style="display: none;">
-        <div class="message message--right">
-            <p>{{text}}</p>
-            {{media}}
-            {{footer}}
-        </div>
-    </div>
 
-    <section class="col col--half col--overflow"
-    data-feed data-feed-screen-name="kvendrik" data-feed-template="#message-template--left"></section>
-
-    <section class="col col--half col--overflow col--pull-right"
-    data-feed data-feed-screen-name="krijnenbeebie" data-feed-template="#message-template--right"></section>
+    <section data-feed data-feed-template="#message-template"></section>
 
     <div class="col text-center">
         <div class="loader loader--hidden js-tweets-loader">

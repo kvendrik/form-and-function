@@ -99,7 +99,7 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
                     $('[data-feed]').each(function(){
                         var $this = $(this),
-                            userTweets = res.data[$this.data('feed-screen-name')];
+                            userTweets = res.data;
 
                         if(res.success){
                             self._handleTweets.apply(self, [
@@ -195,26 +195,50 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
         _handleTweets: function(statuses, wrapper, msgTemplate){
 
-            for(var i = 0, statusesL = statuses.length; i < statusesL; i++){
-                var obj = statuses[i].details,
-                    template = msgTemplate;
+            var personLeft = statuses.kvendrik,
+                personRight = statuses.krijnenbeebie;
 
-                for(var key in obj){
-                    if(obj.hasOwnProperty(key)){
-                        template = template.replace('{{'+key+'}}', obj[key]);
+            for(var i = 0, statusesL = personLeft.length+personRight.length; i < statusesL; i++){
+
+                var personDetails = [
+                    personLeft[i].details,
+                    personRight[i].details
+                ];
+
+                for(var j = 0; j < 2; j++){}
+
+                    var obj = personDetails[j],
+                        template = msgTemplate;
+
+                    for(var key in obj){
+                        if(obj.hasOwnProperty(key)){
+                            template = template.replace('{{'+key+'}}', obj[key]);
+                        }
                     }
+
+                    template = this._parseMentions(obj.entities.user_mentions, template);
+                    template = this._parseHashtags(obj.entities.hashtags, template);
+                    template = this._parseUrls(obj.entities.urls, template);
+                    template = this._parseMedia(obj.entities.media, template);
+
+                    var elWrapper = document.createElement('div'),
+                        $el = $(template);
+
+                    if(i % 2 == 1){
+                        //if is even float right
+                        $el.addClass('message--right');
+                    }
+
+                    elWrapper.className = 'col';
+                    elWrapper.appendChild($el[0]);
+
+                    wrapper.appendChild(elWrapper);
+
+                    setTimeout(function(){
+                        this.addClass('message--visible');
+                    }.bind($el), 200);
+
                 }
-
-                template = this._parseMentions(obj.entities.user_mentions, template);
-                template = this._parseHashtags(obj.entities.hashtags, template);
-                template = this._parseUrls(obj.entities.urls, template);
-                template = this._parseMedia(obj.entities.media, template);
-
-                var $el = $(template);
-                wrapper.appendChild($el[0]);
-                setTimeout(function(){
-                    this.addClass('message--visible');
-                }.bind($el), 200);
             }
 
             this._$el.$tweetsButton.removeClass('button--hidden');
