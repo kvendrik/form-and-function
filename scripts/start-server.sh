@@ -7,4 +7,4 @@ printf '\n>> Deleting previous log file\n'
 rm /root/.forever/form-and-function.log
 
 printf '\n>> Starting server\n'
-MONGO_PORT=27017 forever --uid "form-and-function" --watch start server.js
+MONGO_PORT=27017 PORT=1337 forever --uid "form-and-function" --watch start server.js

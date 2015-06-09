@@ -8,7 +8,7 @@ module.exports = {
 	init: function(){
 		this._setMiddleware();
 		this._setEndpoints();
-		app.listen(1337);
+		app.listen(process.env.PORT || 1337);
 	},
 
 	_setMiddleware: function(){
