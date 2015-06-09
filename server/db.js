@@ -23,6 +23,8 @@ module.exports = {
                 q = q.skip(options.skip);
             }
 
+            q = q.sort({ 'details.created_at': -1 });
+
             return q;
         }.bind(this);
 
