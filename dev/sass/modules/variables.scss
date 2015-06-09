@@ -1,8 +1,8 @@
 //CONTAINERS
 $container-desktop-md: 1200px;
 $container-desktop-sm: 1024px;
-$container-tablet: 750px;
-$container-fablet: 600px;
+$container-tablet-md: 750px;
+$container-tablet-sm: 600px;
 $container-mobile: 90%;
 
 
@@ -31,13 +31,15 @@ $heading-line-height: 1.3em;
 
 $size-s: .75em;
 $size-m: 22px;
-$xs-size-m: 16px;
+$desktop-sm-size-m: 20px;
+$tablet-md-size-m: 18px;
+$mobile-size-m: 16px;
 
 //SPACING
-$margin-xs: 5px;
-$margin-s: 10px;
-$margin-m: 20px;
-$margin-l: 30px;
+$margin-xs: .25em;
+$margin-s: .5em;
+$margin-m: 1em;
+$margin-l: 1.5em;
 
 $padding-m: $margin-s $margin-s+5;
 
