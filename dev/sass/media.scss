@@ -1,0 +1,46 @@
+
+//medium desktop
+@include media($container-desktop-sm, $container-desktop-md){
+    .container {
+        &.container--wide {
+            width: $container-desktop-sm;
+        }
+    }
+}
+
+//small desktop
+@include media($container-tablet, $container-desktop-sm){
+    .container {
+        width: $container-tablet;
+
+        &.container--wide {
+            width: $container-tablet;
+        }
+    }
+}
+
+//tablet
+@include media($container-fablet, $container-tablet){
+    .container {
+        width: $container-fablet;
+
+        &.container--wide {
+            width: $container-fablet;
+        }
+    }
+}
+
+//mobile
+@include media($max-width: $container-fablet){
+    .container {
+        width: $container-mobile;
+
+        &.container--wide {
+            width: $container-mobile;
+        }
+    }
+
+    .col.col--half {
+        @include column(12);
+    }
+}

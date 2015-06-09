@@ -21,10 +21,10 @@ body {
 }
 
 .container {
-	width: 1024px;
+	width: $container-desktop-sm;
 	margin: 0 auto;
 
 	&.container--wide {
-		width: 1200px;
+		width: $container-desktop-md;
 	}
 }
