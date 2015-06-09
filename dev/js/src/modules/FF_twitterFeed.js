@@ -53,15 +53,14 @@
                 dataType: 'json',
                 data: options,
                 success: function(res){
-                    console.log(res);
+                    if(res.count === 0){
+                        self._$el.$tweetsLoader.addClass('loader--hidden');
+                        return;
+                    }
+
                     $('[data-feed]').each(function(){
                         var $this = $(this),
                             userTweets = res.data[$this.data('feed-screen-name')];
-
-                        if(userTweets.length < 1){
-                            this._$el.$tweetsLoader.addClass('loader--hidden');
-                            return;
-                        }
 
                         if(res.success){
                             self._handleTweets.apply(self, [
