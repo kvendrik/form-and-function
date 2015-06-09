@@ -195,20 +195,24 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 
         _handleTweets: function(statuses, wrapper, msgTemplate){
 
+            console.log(statuses);
+
             var personLeft = statuses.kvendrik,
                 personRight = statuses.krijnenbeebie;
 
             for(var i = 0, statusesL = personLeft.length+personRight.length; i < statusesL; i++){
 
                 var personDetails = [
-                    personLeft[i].details,
-                    personRight[i].details
+                    (personLeft[i] || {}).details,
+                    (personRight[i] || {}).details
                 ];
 
-                for(var j = 0; j < 2; j++){}
+                for(var j = 0; j < 2; j++){
 
-                    var obj = personDetails[j],
-                        template = msgTemplate;
+                    var obj = personDetails[j];
+                    if(!obj) continue;
+
+                    var template = msgTemplate;
 
                     for(var key in obj){
                         if(obj.hasOwnProperty(key)){
@@ -224,8 +228,8 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
                     var elWrapper = document.createElement('div'),
                         $el = $(template);
 
-                    if(i % 2 == 1){
-                        //if is even float right
+                    if(j === 1){
+                        //if is personRight, float right
                         $el.addClass('message--right');
                     }
 
